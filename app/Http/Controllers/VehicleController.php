@@ -2,47 +2,58 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Vehicle;
 use Illuminate\Http\Request;
 
 class VehicleController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+
+    public function index(Request $request)
     {
-        //
+        $query = Vehicle::query();
+        $allowedFilters = ['brand', 'year'];
+        foreach ($allowedFilters as $filter) {
+            if ($request->has($filter)) {
+                $query->where($filter, $request->input($filter));
+            }
+        }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'brand' => 'required|string',
+            'model' => 'required|string',
+            'year' => 'required|integer',
+            'price' => 'required|integer',
+        ]);
+
+        return Vehicle::create($validated);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function show(Vehicle $vehicle)
     {
-        //
+        return $vehicle;
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Vehicle $vehicle)
     {
-        //
+        $validated = $request->validate([
+            'brand' => 'sometimes|required|string',
+            'model' => 'sometimes|required|string',
+            'year' => 'sometimes|required|integer',
+            'price' => 'sometimes|required|integer',
+        ]);
+
+        $vehicle->update($validated);
+
+        return $vehicle;
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
+    public function destroy(Vehicle $vehicle)
     {
-        //
+        $vehicle->delete();
+
+        return response()->noContent();
     }
 }
