@@ -2,7 +2,7 @@
 
 **Course:** CIT3102  
 **Project:** Build Your Own API  
-**Repository:** [Link to your repository]
+**Repository:** [[Link to your repository](https://github.com/Mxorphieus/cit3102-m5-vehicles.git)]
 
 ## Project Members
 
