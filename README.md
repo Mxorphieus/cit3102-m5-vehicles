@@ -2,7 +2,7 @@
 
 **Course:** CIT3102  
 **Project:** Build Your Own API  
-**Repository:** [https://github.com/Mxorphieus/cit3102-m5-vehicles.git]
+**Repository:** https://github.com/Mxorphieus/cit3102-m5-vehicles.git
 
 ## Project Members
 
@@ -107,13 +107,17 @@ The following section demonstrates all required test cases and their actual HTTP
 
 The following screenshots show the API requests and their actual responses in Bruno. Each test includes the expected HTTP status code.
 
+## API Testing in Bruno
+
+The following screenshots show the API requests and their actual responses in Bruno. Each test includes the expected HTTP status code.
+
 ### 1. User Registration
 
 - **Method:** `POST`
 - **Endpoint:** `/api/register`
 - **Expected Output:** `201 Created`
 
-![User registration request and response](screenshot/Register_2.jpg)
+![User registration request and response](screenshot/Register.jpg)
 
 ### 2. User Login
 
@@ -121,7 +125,7 @@ The following screenshots show the API requests and their actual responses in Br
 - **Endpoint:** `/api/login`
 - **Expected Output:** `200 OK`
 
-![User login request and response](screenshot/Login_2.jpg)
+![User login request and response](screenshot/Login.jpg)
 
 ### 3. Unauthorized Request
 
@@ -129,7 +133,7 @@ The following screenshots show the API requests and their actual responses in Br
 - **Endpoint:** `/api/vehicles`
 - **Expected Output:** `401 Unauthorized`
 
-![Request without an access token](screenshot/Vehicle%20(without%20token)_2.jpg)
+![Request without an access token](screenshot/Vehicle%20(without%20token).jpg)
 
 ### 4. Retrieve All Vehicle Products
 
@@ -137,7 +141,7 @@ The following screenshots show the API requests and their actual responses in Br
 - **Endpoint:** `/api/vehicles`
 - **Expected Output:** `200 OK`
 
-![Retrieve all vehicle products](screenshot/Vehicle%20(with%20token)_2.jpg)
+![Retrieve all vehicle products](screenshot/Vehicle%20(with%20token).jpg)
 
 ### 5. Create a Vehicle Product
 
@@ -145,7 +149,7 @@ The following screenshots show the API requests and their actual responses in Br
 - **Endpoint:** `/api/vehicles`
 - **Expected Output:** `201 Created`
 
-![Create a vehicle product](screenshot/New%20Vehicle_2.jpg)
+![Create a vehicle product](screenshot/New%20Vehicle.jpg)
 
 ### 6. Validation Error
 
@@ -155,7 +159,7 @@ The following screenshots show the API requests and their actual responses in Br
 
 The API should reject invalid input and return validation errors.
 
-![Validation error for missing required fields](screenshot/Vehicle%20Missing%20Field_2.jpg)
+![Validation error for missing required fields](screenshot/Vehicle%20Missing%20Field.jpg)
 
 ### 7. Retrieve One Vehicle Product
 
@@ -165,7 +169,7 @@ The API should reject invalid input and return validation errors.
 
 Replace `{vehicle}` with the ID of an existing vehicle record.
 
-![Retrieve a single vehicle product](screenshot/Single%20Vehicle%20ID_2.jpg)
+![Retrieve a single vehicle product](screenshot/Single%20Vehicle%20ID.jpg)
 
 ### 8. Nonexistent Vehicle Product
 
@@ -175,7 +179,7 @@ Replace `{vehicle}` with the ID of an existing vehicle record.
 
 The API should return a not-found response when the requested vehicle ID does not exist.
 
-![Request for a nonexistent vehicle product](screenshot/Non%20Existant%20Vehicle_2.jpg)
+![Request for a nonexistent vehicle product](screenshot/Non%20Existant%20Vehicle.jpg)
 
 ### 9. Update a Vehicle Product
 
@@ -185,7 +189,7 @@ The API should return a not-found response when the requested vehicle ID does no
 
 Replace `{vehicle}` with the ID of an existing vehicle record.
 
-![Update a vehicle product](screenshot/Update%20Vehicle_2.jpg)
+![Update a vehicle product](screenshot/Update%20Vehicle.jpg)
 
 ### 10. Delete a Vehicle Product
 
@@ -195,7 +199,7 @@ Replace `{vehicle}` with the ID of an existing vehicle record.
 
 A successful deletion returns no response body.
 
-![Delete a vehicle product](screenshot/Delete%20Vehicle_2.jpg)
+![Delete a vehicle product](screenshot/Delete%20Vehicle.jpg)
 
 ## Conceptual Analysis
 
