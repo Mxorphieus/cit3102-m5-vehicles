@@ -6,8 +6,8 @@
 
 ## Project Members
 
-- **Name:** [Janna Icmat]
-- **Partner:** [Mark Bowen Suarez]
+- **Name:** Janna Icmat
+- **Partner:** Mark Bowen Suarez
 - **Section:** IT3E
 - **Resource:** Vehicle
 
@@ -103,65 +103,99 @@ The API will run locally at `http://127.0.0.1:8000`.
 
 The following section demonstrates all required test cases and their actual HTTP response status codes.
 
+## API Testing in Bruno
+
+The following screenshots show the API requests and their actual responses in Bruno. Each test includes the expected HTTP status code.
+
 ### 1. User Registration
 
-* **Method:** `POST`
-* **Endpoint:** `/api/register`
-* **Status:** `201 Created`
+- **Method:** `POST`
+- **Endpoint:** `/api/register`
+- **Expected Output:** `201 Created`
+
+![User registration request and response](screenshots/Register_2.jpg)
 
 ### 2. User Login
 
-* **Method:** `POST`
-* **Endpoint:** `/api/login`
-* **Status:** `200 OK`
+- **Method:** `POST`
+- **Endpoint:** `/api/login`
+- **Expected Output:** `200 OK`
+
+![User login request and response](screenshots/Login_2.jpg)
 
 ### 3. Unauthorized Request
 
-* **Method:** `GET`
-* **Endpoint:** `/api/vehicles`
-* **Status:** `401 Unauthorized`
+- **Method:** `GET`
+- **Endpoint:** `/api/vehicles`
+- **Expected Output:** `401 Unauthorized`
 
-### 4. Retrieve All Vehicles
+![Request without an access token](screenshots/Vehicle%20(without%20token)_2.jpg)
 
-* **Method:** `GET`
-* **Endpoint:** `/api/vehicles`
-* **Status:** `200 OK`
+### 4. Retrieve All Vehicle Products
 
-### 5. Create a Vehicle Record
+- **Method:** `GET`
+- **Endpoint:** `/api/vehicles`
+- **Expected Output:** `200 OK`
 
-* **Method:** `POST`
-* **Endpoint:** `/api/vehicles`
-* **Status:** `201 Created`
+![Retrieve all vehicle products](screenshots/Vehicle%20(with%20token)_2.jpg)
+
+### 5. Create a Vehicle Product
+
+- **Method:** `POST`
+- **Endpoint:** `/api/vehicles`
+- **Expected Output:** `201 Created`
+
+![Create a vehicle product](screenshots/New%20Vehicle_2.jpg)
 
 ### 6. Validation Error
 
-* **Method:** `POST`
-* **Endpoint:** `/api/vehicles`
-* **Status:** `422 Unprocessable Content`
+- **Method:** `POST`
+- **Endpoint:** `/api/vehicles`
+- **Expected Output:** `422 Unprocessable Content`
 
-### 7. Retrieve Single Vehicle
+The API should reject invalid input and return validation errors.
 
-* **Method:** `GET`
-* **Endpoint:** `/api/vehicles/{id}`
-* **Status:** `200 OK`
+![Validation error for missing required fields](screenshots/Vehicle%20Missing%20Field_2.jpg)
 
-### 8. Nonexistent Resource Request
+### 7. Retrieve One Vehicle Product
 
-* **Method:** `GET`
-* **Endpoint:** `/api/vehicles/{id}`
-* **Status:** `404 Not Found`
+- **Method:** `GET`
+- **Endpoint:** `/api/vehicles/{vehicle}`
+- **Expected Output:** `200 OK`
 
-### 9. Update a Vehicle Record
+Replace `{vehicle}` with the ID of an existing vehicle record.
 
-* **Method:** `PUT`
-* **Endpoint:** `/api/vehicles/{id}`
-* **Status:** `200 OK`
+![Retrieve a single vehicle product](screenshots/Single%20Vehicle%20ID_2.jpg)
 
-### 10. Delete a Vehicle Record
+### 8. Nonexistent Vehicle Product
 
-* **Method:** `DELETE`
-* **Endpoint:** `/api/vehicles/{id}`
-* **Status:** `204 No Content`
+- **Method:** `GET`
+- **Endpoint:** `/api/vehicles/99999`
+- **Expected Output:** `404 Not Found`
+
+The API should return a not-found response when the requested vehicle ID does not exist.
+
+![Request for a nonexistent vehicle product](screenshots/Non%20Existant%20Vehicle_2.jpg)
+
+### 9. Update a Vehicle Product
+
+- **Method:** `PUT`
+- **Endpoint:** `/api/vehicles/{vehicle}`
+- **Expected Output:** `200 OK`
+
+Replace `{vehicle}` with the ID of an existing vehicle record.
+
+![Update a vehicle product](screenshots/Update%20Vehicle_2.jpg)
+
+### 10. Delete a Vehicle Product
+
+- **Method:** `DELETE`
+- **Endpoint:** `/api/vehicles/{vehicle}`
+- **Expected Output:** `204 No Content`
+
+A successful deletion returns no response body.
+
+![Delete a vehicle product](screenshots/Delete%20Vehicle_2.jpg)
 
 ## Conceptual Analysis
 
